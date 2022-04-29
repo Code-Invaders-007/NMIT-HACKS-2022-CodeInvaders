@@ -39,8 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        
-
+      body: SafeArea(
+        bottom: true,
+        left: true,
+        top: true,
+        right: true,
+        maintainBottomViewPadding: true,
+        minimum: EdgeInsets.zero,
+        child: (Column(
+          children: [TextButton(onPressed: onPressed, child: child)],
+        )),
+      ),
     );
   }
 }
