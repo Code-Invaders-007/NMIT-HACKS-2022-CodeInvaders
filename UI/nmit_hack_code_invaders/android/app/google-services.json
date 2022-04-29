@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543640605365",
+    "project_id": "face-recog-attendance-007",
+    "storage_bucket": "face-recog-attendance-007.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543640605365:android:28fc2f454e07d303c724fc",
+        "android_client_info": {
+          "package_name": "com.example.nmit_hack_code_invaders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543640605365-vrm7c7eau0nm7i2krcigcis0ohodlc1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTh2HS_0Ykt4wrfczGEYnQjTREhNaU1mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543640605365-vrm7c7eau0nm7i2krcigcis0ohodlc1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
