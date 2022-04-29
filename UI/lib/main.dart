@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => Button(),
+                        builder: (context) => LoginPage(),
                       ),
                     );
                   },
@@ -101,9 +101,26 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      body: SafeArea(
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  "LOGIN PAGE",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
     );
-    ;
   }
 }
 
@@ -120,8 +137,11 @@ class _ButtonState extends State<Button> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.amber,
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            
             children: [
               Center(
                 child: Container(
