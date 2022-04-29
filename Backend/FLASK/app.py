@@ -7,7 +7,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-path = 'refimages'
+path = 'Backend/FLASK/refimages'
 @app.route('/',methods =['GET'])
 def index():
     images = []

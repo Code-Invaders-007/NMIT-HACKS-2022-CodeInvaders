@@ -4,7 +4,6 @@ import face_recognition
 import os
 from datetime import datetime
 import time
-import firebase
 # from PIL import ImageGrab
 
 path = 'Backend/python1/refimages'
@@ -75,4 +74,4 @@ def logic_face():
 
 
 
-logic_face()
+# logic_face()
