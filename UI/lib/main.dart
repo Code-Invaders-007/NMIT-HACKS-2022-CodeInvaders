@@ -3,13 +3,17 @@ import 'package:nmit_hack_code_invaders/database.dart';
 import 'button.dart';
 import 'Login.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:splashscreen/splashscreen.dart';
-// import 'package:login_screen/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
-void main() {
+import 'package:firebase_auth/firebase_auth.dart';
+import 'TeacherLogin.dart';
+import 'function.dart';
+import 'studentLogin.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -46,6 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text("WELCOME"),
+      ),
       backgroundColor: Colors.amber,
       body: Center(
         child: Column(
@@ -54,7 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => StreamBuilder<User?>(
+                          stream: FirebaseAuth.instance.authStateChanges(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Example();
+                            } else {
+                              return LoginPage();
+                            }
+                          })));
+                },
                 child: const Text(
                   "Teacher",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -74,8 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Button()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => StLoginPage()));
               },
               child: const Text(
                 "Student",
