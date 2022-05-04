@@ -1,38 +1,47 @@
+from crypt import methods
 from flask import Flask, jsonify
 import cv2
 import numpy as np
 import face_recognition
-import os
+import os,sys
 from datetime import datetime
+# sys.path.append('Backend/Python/firedatabase.py')
+# import firedatabase as fd
 
 app = Flask(__name__)
 
-path = 'Backend/FLASK/refimages'
 @app.route('/',methods =['GET'])
 def index():
-    images = []
-    classNames = []
-    myList = os.listdir(path)
-    print(myList)
-    for cl in myList:
-        curImg = cv2.imread(f'{path}/{cl}')
-        images.append(curImg)
-        classNames.append(os.path.splitext(cl)[0])
-    print(classNames)
+    return("iNDEX")
 
+@app.route('/encode',methods=['GET'])
+def findEncodings(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    encode = face_recognition.face_encodings(img)[0]
+    fd.write_data()
+    
 
-    def findEncodings(images):
-        encodeList = []
+path = 'Backend/FLASK/refimages'
+images = []
+classNames = []
+myList = os.listdir(path)
+print(myList)
+for cl in myList:
+    curImg = cv2.imread(f'{path}/{cl}')
+    images.append(curImg)
+    classNames.append(os.path.splitext(cl)[0])
+print(classNames)
 
+def findEncodings(images):
+    encodeList = []
 
+    for img in images:
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        encode = face_recognition.face_encodings(img)[0]
+        encodeList.append(encode)
+    print(encodeList)
 
-        for img in images:
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            encode = face_recognition.face_encodings(img)[0]
-            encodeList.append(encode)
-        print(encodeList)
-
-        return encodeList
+    return encodeList
 
 
     def markAttendance(name):

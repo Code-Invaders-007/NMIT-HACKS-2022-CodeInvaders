@@ -4,9 +4,10 @@ import face_recognition
 import os
 from datetime import datetime
 from fer import FER
+# import Backend.Python.firedatabase as fd
 emotion_detector = FER(mtcnn=True)
 
-path = 'refimages'
+path = 'Backend/Python/Face-Recognition-Attendance-Projects-main/refimages'
 images = []
 classNames = []
 myList = os.listdir(path)

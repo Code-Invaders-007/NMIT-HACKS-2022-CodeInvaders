@@ -67,7 +67,7 @@ def logic_face():
                 
             
 
-        cv2.imshow('test image', img)
+        cv2.imshow('Results', img)
         cv2.waitKey(0)
         # print(faceDis+" - type - "+type(faceDis))
         # print(matchIndex+" - type - "+type(matchIndex))
